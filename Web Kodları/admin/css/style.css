@@ -1,0 +1,126 @@
+body{
+	position:fixed;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	background-color: #e5ebf2;
+}
+
+#genel{
+	width:100%;
+	height:100%;
+	margin-top:-10px
+}
+#logo{
+	position: fixed;
+	width:100%;
+	height:50px;
+	background-color:#09192A;
+}
+#menu{
+		position: fixed;
+
+	width:235px;
+	float:left;
+	border:6px;
+	margin-top:50px;
+	margin-left:20px;
+	line-height: 30px;
+	
+}
+
+#menu h4{
+	color:white;
+	padding-top:15px;
+	padding-left:10px;
+}
+
+a:hover{
+	color: red;
+	font-style:italic;
+	font-weight: bold;
+}
+
+#icerik{
+	width: 1249px;
+	height:1584px;
+	float:left;
+	margin-left:50px;
+}
+#productust{
+	width: 1249px;
+	height: 48px;
+}
+
+#productustsol{
+	width: 100px;
+	height: 48px;
+	float:left;
+}
+
+#productustsag{
+	width: 100px;
+	height: 48px;
+	float:right;
+}
+
+#dashboard{
+		width: 1249px;
+		height:250px;
+	
+}
+#sordertable{
+		width: 1249px;
+		height: auto;
+}
+#sag{
+		width:235px;
+	height:1584px;
+	float:left;
+	background-color:#09192A;;
+}
+
+#usticerik{
+	width: 1200px;
+	height:auto;
+	margin-top: 20px;
+}
+
+#satistoplami{
+	width: 270px;
+	height: 170px;
+	background-color:white;
+	float : left;
+}
+#toplamkullanici{
+	width: 270px;
+	height: 170px;
+	background-color:white;
+	float : left;
+	margin-left: 35px;
+}
+#toplamurunsayisi{
+	width: 270px;
+	height: 170px;
+	background-color:white;
+	float : left;
+	margin-left: 35px;
+}
+#siteyegiris{
+	width: 270px;
+	height: 170px;
+	background-color:white;
+	float : left;
+	margin-left: 35px;
+}
+#image{
+		width: 70px;
+		height:62px;
+		margin-left: 70px;
+		margin-top:10px;
+}
+
+table, th, td {
+	border: 1px solid black;
+
+}
+
