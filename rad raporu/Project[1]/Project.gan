@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2016-10-08" view-index="0" gantt-divider-location="942" resource-divider-location="300" version="2.8.1" locale="en_US">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd10" name="ID" width="50" order="0"/>
+        <field id="tpd9" name="Predecessors" width="96" order="2"/>
+        <field id="tpd1" name="Priority" width="62" order="1"/>
+        <field id="tpd3" name="Name" width="241" order="3"/>
+        <field id="tpd4" name="Begin date" width="82" order="4"/>
+        <field id="tpd5" name="End date" width="79" order="5"/>
+        <field id="tpd2" name="Alerts" width="56" order="6"/>
+        <field id="tpd7" name="Completion" width="81" order="7"/>
+        <field id="tpd6" name="Duration" width="83" order="8"/>
+        <field id="tpd13" name="Resources" width="67" order="9"/>
+        <field id="tpc0" name="" width="41" order="10"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+            <taskproperty id="tpc0" name="" type="custom" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Analyze requirements" color="#8cb6ce" meeting="false" start="2016-10-10" duration="2" complete="100" expand="true">
+            <depend id="4" type="2" difference="0" hardness="Strong"/>
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="3" name="Design" meeting="false" start="2016-11-18" duration="7" complete="100" expand="true"/>
+        <task id="4" name="Redesigning existing components" color="#8cb6ce" meeting="false" start="2016-10-12" duration="2" complete="100" expand="true">
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="5" name="Design new components" color="#8cb6ce" meeting="false" start="2016-10-12" duration="2" complete="100" expand="true">
+            <depend id="6" type="2" difference="0" hardness="Strong"/>
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+            <depend id="11" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="6" name="Design interfaces" color="#8cb6ce" meeting="false" start="2016-10-14" duration="7" complete="90" expand="true">
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="7" name="implement code" color="#8cb6ce" meeting="false" start="2016-11-18" duration="7" complete="20" expand="true"/>
+        <task id="8" name="implement new code" color="#8cb6ce" meeting="false" start="2016-10-14" duration="7" complete="0" expand="true">
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+            <depend id="13" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="9" name="modify existing code" color="#8cb6ce" meeting="false" start="2016-10-25" duration="4" complete="0" expand="true">
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+            <depend id="13" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="10" name="finish implementation" meeting="false" start="2016-11-18" duration="5" complete="0" expand="true"/>
+        <task id="11" name="Develop integration plan" color="#8cb6ce" meeting="false" start="2016-10-14" duration="2" complete="0" expand="true">
+            <depend id="15" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="12" name="Finish unit Testing" color="#8cb6ce" meeting="false" start="2016-10-31" duration="1" complete="0" expand="true">
+            <depend id="16" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="13" name="Update documentation" color="#8cb6ce" meeting="false" start="2016-10-31" duration="1" complete="0" expand="true">
+            <depend id="16" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="14" name="integrate and test" meeting="false" start="2016-11-18" duration="1" complete="0" expand="true"/>
+        <task id="15" name="Develop integration test" color="#8cb6ce" meeting="false" start="2016-10-18" duration="1" complete="0" expand="true">
+            <depend id="16" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="16" name="Perform integration test" color="#8cb6ce" meeting="false" start="2016-11-01" duration="1" complete="0" expand="true">
+            <depend id="17" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="17" name="Perform acceptance tests" color="#8cb6ce" meeting="false" start="2016-11-02" duration="1" complete="0" expand="true"/>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
