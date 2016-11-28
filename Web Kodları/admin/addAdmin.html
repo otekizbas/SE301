@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
+<title>ONLINE CLOTHING || ADMIN PANEL</title>
+<link href="css/style2.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+		<div id="genel">
+						<div id = "logo">
+					<img src="img/logo.png" style="width:100px; height:50px"/>
+				</div>
+			<div id  = "sag">
+
+				<div id= "menu">
+					<a href ="#"><h4>Product</h4></a>
+					
+					<a href ="#"><h4>Category</h4></a>
+					<a href ="#"><h4>Manager</h4></a>
+					<a href ="#"><h4>Order</h4></a>
+					<a href ="#"><h4>User</h4></a>
+					<a href ="#"><h4>Contact</h4></a>
+					<a href ="#"><h4>Forgat Password</h4></a>
+				</div>
+			</div>
+			
+			<form action="adminekle.php" method="post">
+				<div id= "icerik">
+				<h1 style="margin-left=50px">Dashboard</h1>
+				
+				<div id="productust">
+						<div id ="productustsol">
+							<h5>Home / Add Admin</h5>
+						</div>
+						
+						<div id ="productustsag">
+						<input type="submit" value=""; id ="save" />
+							<img src="img/cancel.png"/>
+						</div>
+				</div>
+
+				
+				<div id="addproduct">
+					<div id="addproduct1">
+						<h5>Admin User Name</h5>
+						<input type="text" name="adminusername" value="" placeholder="Admin User Name" id="input-name1" class="form-control">
+					</div>
+					<h5>Admin Password</h5>
+					<input type="text" name="adminpassword" value="" placeholder="Admin Password" id="input-name2" class="form-control">
+					
+				</div>
+						
+					<div id="addproduct2">
+						<h5>Admin Type</h5>
+							<select name="admintype">
+								  <option value="category">Admin</option>
+								  <option value="category">Product Manager</option>
+							</select>							
+					</div>				
+							
+				</div>
+				</form>
+		</div>
+</body>
+</html>
