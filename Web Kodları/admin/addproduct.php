@@ -101,7 +101,9 @@ if($_SESSION['admintype'] == 'admin')
 						<h5>Product Gender</h5>
 						<input type="text" name="productgender" value="" placeholder="Product Gender" id="input-gender" class="form-control">
 					
-							
+						<h5>Number Of Product</h5>
+						<input type="text" name="numberofproduct" value="" placeholder="Number Of Product" id="input-numberofproduct" class="form-control">
+
 					</div>		
 
 

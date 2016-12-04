@@ -13,8 +13,9 @@
 			$product_price	 = $_POST['product_price	'];
 			$product_gender= $_POST['product_gender'];
 			$product_image = $_POST['product_image'];
+			$numberofproduct = $_POST['numberofproduct'];
 			
-			$sorgu = mysql_query("insert into product(product_name, product_description, product_category_name,product_price, product_gender, product_image) VALUES ('$product_name','$product_description','$product_category_name', '$product_price','$product_gender','$product_image')");
+			$sorgu = mysql_query("insert into product(product_name, product_description, product_category_name,product_price, product_gender, product_image,numberofproduct) VALUES ('$product_name','$product_description','$product_category_name', '$product_price','$product_gender','$product_image','$numberofproduct')");
 			
 	if ($sorgu){
 	    echo "Kayıt Başarılı";

@@ -77,6 +77,8 @@ FROM  `product`")
 										  <td style="font-weight:bold">Product Name</td>
 										  <td style="font-weight:bold">Product Gender</td>
 										  <td style="font-weight:bold">Product Price</td>
+										  <td style="font-weight:bold">Number of Product</td>
+
 									  </tr>
 								  </thead>	
 <thead>								  
@@ -90,6 +92,7 @@ FROM  `product`")
 										  echo '<td style="font-weight:bold">'.$duyuru['product_name'].'</td>';
 										 echo '<td style="font-weight:bold">'.$duyuru['product_gender'].'</td>';
 										  echo '<td style="font-weight:bold">'.$duyuru['product_price'].'</td>';
+										  echo '<td style="font-weight:bold">'.$duyuru['numberofproduct'].'</td>';
 
 									  echo '</tr>';
 

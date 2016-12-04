@@ -85,7 +85,7 @@ if($_SESSION['admintype'] == 'admin')
 								$product_price=$sorgu['product_price'];
 								$product_gender=$sorgu['product_gender'];
 								$product_image=$sorgu['product_image'];	
-								
+								$numberofproduct=$sorgu['numberofproduct'];	
 								
 				echo '<div id="addproduct">';
 				
@@ -133,7 +133,8 @@ if($_SESSION['admintype'] == 'admin')
 						echo '<h5>Product Gender</h5>';
 						echo '<input type="text" name="product_gender" value="'.$product_gender.'"  placeholder="Product Gender" id="input-gender" class="form-control">';
 					
-							
+						echo '<h5>Number Of Product</h5>';
+						echo '<input type="text" name="numberofproduct" value="'.$numberofproduct.'"  placeholder="Product Gender" id="input-gender" class="form-control">';							
 					echo '</div>';		
 
 
