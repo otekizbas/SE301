@@ -1,6 +1,7 @@
 body{
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
+	background-image: url("../img/loginbg.jpg");
 }
 
 #genel{
@@ -212,14 +213,4 @@ table, th, td {
 	height:35px;
 	margin-top: -20px;
 	border-width: 0px;
-}
-
-
-#searh_button{
-	background-image: url("../img/filter.png");
-	width:70px;
-	height:35px;
-	margin-top:25px;
-	border-width: 0px;
-	float:right;
 }
