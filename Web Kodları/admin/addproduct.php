@@ -62,10 +62,10 @@ if($_SESSION['admintype'] == 'admin')
 				<div id="addproduct">
 					<div id="addproduct1">
 						<h5>Product Name</h5>
-						<input type="text" name="productname" value="" placeholder="Product Name" id="input-name1" class="form-control">
+						<input type="text" name="product_name" value="" placeholder="Product Name" id="input-name1" class="form-control">
 					</div>
 					<h5>Product Description</h5>
-					<textarea rows="4" cols="500" name="productname" id="input-name2" placeholder="Product Name"; style="height:300px; margin-top:5px">
+					<textarea rows="4" cols="500" name="product_description" id="input-name2" placeholder="Product Name"; style="height:300px; margin-top:5px">
 
 					</textarea>
 					
@@ -74,21 +74,14 @@ if($_SESSION['admintype'] == 'admin')
 					<div id="addproduct2">
 						<h5>Product Category</h5>
 												<?php
-															
-														$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-														$db_sunucu  = "Localhost";       #Sunucu Adı
-														$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-														$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-														$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-														if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-														mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
+														include "db_baglan.php";
 														
 														$duzenle=$_GET["deger"];
 														$sql = mysql_query("SELECT category_name FROM  `category`")
 												?>
 												<? 
 												echo' 
-												<select name="product_category_name">'; 
+												<select name="category_name">'; 
 														while($Veriler = mysql_fetch_array($sql)){ 
 															echo'<option value="'.$Veriler['category_name'].'">'.$Veriler['category_name'].'</option>'; 
 														} 
@@ -96,11 +89,15 @@ if($_SESSION['admintype'] == 'admin')
 												</select>'; 
 												?> 
 						<h5>Product Price</h5>
-						<input type="text" name="productprice" value="" placeholder="Product Price" id="input-price" class="form-control">		
+						<input type="text" name="product_price" value="" placeholder="Product Price" id="input-price" class="form-control">		
 					
 						<h5>Product Gender</h5>
-						<input type="text" name="productgender" value="" placeholder="Product Gender" id="input-gender" class="form-control">
-					
+												<select name="product_gender">
+															<option value="man">man</option>
+															<option value="woman">woman</option>
+															<option value="kid">kid</option>
+												</select> 
+
 						<h5>Number Of Product</h5>
 						<input type="text" name="numberofproduct" value="" placeholder="Number Of Product" id="input-numberofproduct" class="form-control">
 
@@ -109,38 +106,7 @@ if($_SESSION['admintype'] == 'admin')
 
 					
 					<div id="addproduct3">
-<?php
-
-	if(isset($_FILES['image'])){
-		$errors= array();
-		$file_name = $_FILES['image']['name'];
-		$file_size =$_FILES['image']['size'];
-		$file_tmp =$_FILES['image']['tmp_name'];
-		$file_type=$_FILES['image']['type'];   
-		$file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-		
-		$expensions= array("jpeg","jpg","png"); 		
-		if(in_array($file_ext,$expensions)=== false){
-			$errors[]="extension not allowed, please choose a JPEG or PNG file.";
-		}
-		if($file_size > 2097152){
-		$errors[]='File size must be excately 2 MB';
-		}				
-		if(empty($errors)==true){
-			move_uploaded_file($file_tmp,"images/".$file_name);
-			
-			echo "Success";
-		}else{
-			print_r($errors);
-		}
-	}
-?>
-
-<form action="" method="POST" enctype="multipart/form-data">
-<input type="file" name="product_image" />
-
-<input type="submit"/>
-</form>
+						<iframe src="uploadresimproduct.php"></iframe>
 					</div>	
 </form>					
 				</div>

@@ -42,14 +42,7 @@ if($_SESSION['admintype'] == 'admin')
 			</div>
 			
 							<?php
-							
-				$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-				$db_sunucu  = "Localhost";       #Sunucu Adı
-				$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-				$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-				$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-				if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-				mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
+			include "db_baglan.php";
 				
 				$duzenle=$_GET["deger"];
 				$sql = mysql_query("SELECT *  FROM  `order` where orderid=$duzenle")
@@ -75,13 +68,15 @@ if($_SESSION['admintype'] == 'admin')
 				
 			<?php
 						while($sorgu=mysql_fetch_array($sql)){			
-								$category_id=$sorgu['orderid'];
-								$category_name=$sorgu['firstname'];
-								$category_description=$sorgu['lastname'];
-								$category_URL=$sorgu['productid'];
-								$category_name=$sorgu['productname'];
-								$category_description=$sorgu['productprice'];
-								$category_URL=$sorgu['orderstatus'];
+								$orderid=$sorgu['orderid'];
+								$firstname=$sorgu['firstname'];
+								$lastname=$sorgu['lastname'];
+								$product_id=$sorgu['product_id'];					
+								$product_name=$sorgu['product_name'];
+								$adet=$sorgu['adet'];
+								$product_price=$sorgu['product_price'];
+								$orderstatus=$sorgu['orderstatus'];					
+								$order_adres=$sorgu['order_adres'];	
 
 				echo '<div id="addproduct">';
 					echo '<div id="addproduct1">';
@@ -101,17 +96,28 @@ if($_SESSION['admintype'] == 'admin')
 
 					echo '<div id="addproduct1">';
 						echo '<h5>Product ID</h5>';
-						echo '<input type="text" name="productid" value="'.$productid.'" placeholder="Product ID" id="input-name1" class="form-control">';
+						echo '<input type="text" name="product_id" value="'.$product_id.'" placeholder="Product ID" id="input-name1" class="form-control">';
 					echo '</div>';
 
 					echo '<div id="addproduct1">';
 						echo '<h5>Product Name</h5>';
-						echo '<input type="text" name="productname" value="'.$productname.'" placeholder="Product Name" id="input-name1" class="form-control">';
+						echo '<input type="text" name="product_name" value="'.$product_name.'" placeholder="Product Name" id="input-name1" class="form-control">';
+					echo '</div>';
+
+					echo '<div id="addproduct1">';
+						echo '<h5>Product Name</h5>';
+						echo '<input type="text" name="adet" value="'.$adet.'" placeholder="Product Name" id="input-name1" class="form-control">';
 					echo '</div>';
 					
 					echo '<div id="addproduct1">';
+						echo '<h5>Product Name</h5>';
+						echo '<input type="text" name="order_adres" value="'.$order_adres.'" placeholder="Order Adress" id="input-name1" class="form-control">';
+					echo '</div>';					
+					
+					
+					echo '<div id="addproduct1">';
 						echo '<h5>Product Price</h5>';
-						echo '<input type="text" name="productprice" value="'.$productprice.'" placeholder="Product Price" id="input-name1" class="form-control">';
+						echo '<input type="text" name="product_price" value="'.$product_price.'" placeholder="Product Price" id="input-name1" class="form-control">';
 					echo '</div>';								
 					
 					

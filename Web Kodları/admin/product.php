@@ -54,11 +54,11 @@ if($_SESSION['admintype'] == 'admin')
 						<a href="addproduct.php"><img src="img/add.png"/></a>
 						</div>
 				</div>
-						
+					<form method= "post" name = "form" action = "searchproduct.php">	
 						<div id="search">
 							<h4 style="padding-top:10px;margin-left: 10px;">Seach</h4>
 							
-								<form method="post" name ="form" action="searchproduct.php">			
+											
 
 										<div id="s1">
 											<h5>
@@ -79,30 +79,22 @@ if($_SESSION['admintype'] == 'admin')
 											<input type="text" name="product_gender" value="" placeholder="Gender" id="input-gender" class="form-control">		
 											<button type="button" id="searh_button"></button>									
 										</div>
-								</form>
-								<div id="s3">
-									
-								</div>
+								
 							</div>
-						
+						</form>
 			<?php
-			$db_adi     = "yazilimt_se301";  #Veritabanýmýzýn Adý
-			$db_sunucu  = "Localhost";       #Sunucu Adý
-			$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanýcý Adý
-			$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanýcý Þifre
-			$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-			if (! $veriyolu) die ("MySql Baðlantýsý Saðlanamadý");
-			mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabaný Baðlantýsý Saðlanamadý");
+			include "db_baglan.php";
 			$sorgu = mysql_query("SELECT * 
 FROM  `product`")
 			?>
 						
 						<div id = "ordertable">
-						<h4>Order Table</h4>
+						<h4>Product Table</h4>
 							<table style="width:100%;border= 1">
 								  <thead>
 									  <tr>
 										  <td style="font-weight:bold">Product ID</td>
+										  <td style="font-weight:bold">Category Name</td>										  
 										  <td style="font-weight:bold">Product Image</td>
 										  <td style="font-weight:bold">Product Name</td>
 										  <td style="font-weight:bold">Product Gender</td>
@@ -118,6 +110,7 @@ FROM  `product`")
 
 											echo '<tr>';
 										   echo '<td style="font-weight:bold">'.$duyuru['product_id'].'</td>';
+										  echo '<td style="font-weight:bold">'.$duyuru['category_name'].'</td>';
 										  echo '<td style="font-weight:bold">'.$duyuru['product_image'].'</td>';
 										  echo '<td style="font-weight:bold">'.$duyuru['product_name'].'</td>';
 										 echo '<td style="font-weight:bold">'.$duyuru['product_gender'].'</td>';

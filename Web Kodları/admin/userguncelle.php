@@ -1,12 +1,5 @@
-<?php
-							
-				$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-				$db_sunucu  = "Localhost";       #Sunucu Adı
-				$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-				$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-				$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-				if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-				mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
+﻿<?php
+			include "db_baglan.php";
 				
 								$user_id=$sorgu['user_id'];
 								$username=$sorgu['username'];
@@ -17,16 +10,17 @@
 								$telephone=$sorgu['telephone'];
 								$email=$sorgu['email'];									
 
-$sorgu=mysql_query("update user set user_id='$user_id', username='$username', userpassword='$userpassword' , firstname='$firstname',     lastname='$lastname', adres='$adres', telephone='$telephone' , email='$email' where user_id='$user_id'");
-			if($sorgu)
-				{
-					 echo "Kaydınız başarıyla düzenlenmiştir";
-					 header("Refresh:2;url=userpage.php");
-				}
-				else 
-	  			{
-					 echo "Bir sorun çıktı";
-					 header("Refresh:2;url=userpage.php");
-				}
+$sorgu=mysql_query("update user set user_id='$user_id', username='$username', userpassword='$userpassword' , firstname='$firstname', lastname='$lastname', adres='$adres', telephone='$telephone' , email='$email' where user_id='$user_id'");
+	
+	if(!(is_numeric($telephone)) or ((strlen($userpassword) < 6) and (ctype_alnum($userpassword) ) )){
+		echo "Sayı değildir veya sifre kisa"; 
+		echo "Kayıt Başarısız";
+	}else{
+			if($sorgu){
+					echo "Sayıdır"; 
+					echo "Kayıt Başarılı";
+
+			}
+	}
 ?>
 <a href ="userpage.php"><h4>Return User Page</h4></a>

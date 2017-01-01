@@ -94,13 +94,7 @@ if($_SESSION['admintype'] == 'admin')
 				</div>
 				
 				 								<?php
-$db_adi     = "yazilimt_se301";  #Veritabanýmýzýn Adý
-$db_sunucu  = "Localhost";       #Sunucu Adý
-$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanýcý Adý
-$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanýcý Þifre
-$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-if (! $veriyolu) die ("MySql Baðlantýsý Saðlanamadý");
-mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabaný Baðlantýsý Saðlanamadý");
+			include "db_baglan.php";
 $sorgu = mysql_query("` SELECT * 
 FROM  `order`")
 
@@ -114,7 +108,8 @@ FROM  `order`")
   <td style="font-weight:bold">First Name</td>
   <td style="font-weight:bold">Last Name</td>
   <td style="font-weight:bold">Product ID</td>
-  <td style="font-weight:bold">Product Name</td>
+  <td style="font-weight:bold">Product Name</td>  
+  <td style="font-weight:bold">Quantity</td>
   <td style="font-weight:bold">Product Price</td>
   <td style="font-weight:bold">Order Status</td>
   <td style="font-weight:bold">Product Status / Action</td>
@@ -126,9 +121,10 @@ FROM  `order`")
 								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['orderid'].'</td>';
 								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['firstname'].'</td>';
 								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['lastname'].'</td>';
-								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['productid'].'</td>';
-								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['productname'].'</td>';
-								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['productprice'].'</td>';
+								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['product_id'].'</td>';
+								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['product_name'].'</td>';
+								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['adet'].'</td>';
+								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['product_price'].'</td>';
 								 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['orderstatus'].'</td>';
 								 echo "<td><a href=orderduzenle.php?deger=".$duyuru["orderid"].">DÜZENLE</a> - <a href=ordersil.php?deger=".$duyuru["orderid"].">SÝL</a></td>";
 								 

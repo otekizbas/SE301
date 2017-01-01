@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+ï»¿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
 <title>ONLINE CLOTHING || ADMIN PANEL</title>
@@ -55,13 +55,7 @@ if($_SESSION['admintype'] == 'admin')
 				</div>
 
 			<?php
-			$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-			$db_sunucu  = "Localhost";       #Sunucu Adı
-			$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-			$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-			$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-			if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-			mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
+			include "db_baglan.php";
 			$sorgu = mysql_query("SELECT * FROM  `forgatpassword`")
 			?>
 						<div id = "ordertable">

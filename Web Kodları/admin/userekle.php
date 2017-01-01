@@ -1,12 +1,6 @@
-			
+﻿			
 						<?php
-			$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-			$db_sunucu  = "Localhost";       #Sunucu Adı
-			$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-			$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-			$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-			if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-			mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
+			include "db_baglan.php";
 			
 			$username = $_POST['username'];
 			$userpassword = $_POST['userpassword'];
@@ -18,12 +12,16 @@
 			
 			$sorgu = mysql_query("insert into user(username, userpassword, firstname, lastname, adres, telephone, email) VALUES ('$username','$userpassword','$firstname','$lastname','$adres','$telephone','$email')");
 			
-						    if ($sorgu){
-	    echo "Kayıt Başarılı";
-    }
-    else{
-	    echo "Kayıt Esnasında Bir Sorun Oluştu!";
-    }
+	if(!(is_numeric($telephone)) or ((strlen($userpassword) < 6) and (ctype_alnum($userpassword) ) )){
+		echo "Sayı değildir veya sifre kisa"; 
+		echo "Kayıt Başarısız";
+	}else{
+			if($sorgu){
+					echo "Sayıdır"; 
+					echo "Kayıt Başarılı";
+
+			}
+	}
 ?>
 
 <p>Kullanıcı kaydınız başarıyla gerçekleştirildi.</p>

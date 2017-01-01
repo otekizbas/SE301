@@ -7,9 +7,8 @@ if(empty($product_name) OR empty($product_price) OR empty($product_gender)){
 		echo 'Arama alanını boş bıraktın';
 		echo "<script type='text/javascript'>alert('failed!')</script>";
 	}else{
-		if($product_name=='product_name') {
 			$bilgi= mysql_query("SELECT * FROM product WHERE product_name LIKE $product_name%´"); 
-				while ($sorgu = mysql_fetch_array($bilgi)){ 
+				while ($duyuru = mysql_fetch_array($bilgi)){ 
 																echo '<tr>';
 										   echo '<td style="font-weight:bold">'.$duyuru['product_id'].'</td>';
 										  echo '<td style="font-weight:bold">'.$duyuru['product_image'].'</td>';
@@ -21,9 +20,9 @@ if(empty($product_name) OR empty($product_price) OR empty($product_gender)){
 									  echo '</tr>';
 
 				}
-		}else{
+		else{
 			echo'Kayıt Bulunamadı.';
 		}
-		
 	}
+	
 ?>

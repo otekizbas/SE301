@@ -1,18 +1,13 @@
 			
 						<?php
-			$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-			$db_sunucu  = "Localhost";       #Sunucu Adı
-			$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-			$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-			$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-			if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-			mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
+			include "db_baglan.php";
 			
 			$category_name = $_POST['category_name'];
-			$category_URL = $_POST['category_URL'];
 			$category_description = $_POST['category_description'];
-
-			$sorgu = mysql_query("insert into category(category_name, category_URL, category_description) VALUES ('$category_name','$category_URL','$category_description')");
+			$category_image_URL = $_POST['category_image_URL'];
+			$category_gender = $_POST['category_gender'];
+			
+			$sorgu = mysql_query("insert into category(category_name, category_description,category_image_URL, category_gender) VALUES ('$category_name','$category_description','$category_image_URL' ,'$category_gender')");
 			
 	if ($sorgu){
 	    echo "Kayıt Başarılı";

@@ -1,31 +1,27 @@
 <?php
-							
-				$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-				$db_sunucu  = "Localhost";       #Sunucu Adı
-				$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-				$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-				$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-				if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-				mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
+			include "db_baglan.php";
 				
 								$orderid=$sorgu['orderid'];
 								$firstname=$sorgu['firstname'];
 								$lastname=$sorgu['lastname'];
-								$productid=$sorgu['productid'];					
-								$productname=$sorgu['productname'];
-								$productprice=$sorgu['productprice'];
+								$product_id=$sorgu['product_id'];					
+								$product_name=$sorgu['product_name'];
+								$adet=$sorgu['adet'];
+								$product_price=$sorgu['product_price'];
 								$orderstatus=$sorgu['orderstatus'];					
+								$order_adres=$sorgu['order_adres'];	
+								
+								$sorgu=mysql_query("update order set orderid='$orderid', firstname='$firstname', lastname='$lastname' , product_id='$product_id', product_name='$product_name' , adet='$adet', product_price='$product_price', orderstatus='$orderstatus' , order_adres='$order_adres' where orderid='$orderid'");
+	
+	if(!(is_numeric($adet))){
+		echo "Lütfen sayı girin"; 
+		echo "Kayıt Başarısız";
+	}else{
+			if($sorgu){
+					echo "Sayıdır"; 
+					echo "Kayıt Başarılı";
 
-								$sorgu=mysql_query("update order set orderid='$orderid', firstname='$firstname', lastname='$lastname' , productid='$productid', productname='$productname', productprice='$productprice', orderstatus='$orderstatus' where orderid='$orderid'");
-			if($sorgu)
-				{
-					 echo "Kaydınız başarıyla düzenlenmiştir";
-					 header("Refresh:2;url=order.php");
-				}
-				else 
-	  			{
-					 echo "Bir sorun çıktı";
-					 header("Refresh:2;url=order.php");
-				}
+			}
+	}
 ?>
 <a href ="order.php"><h4>Return Order Page</h4></a>

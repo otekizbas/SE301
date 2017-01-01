@@ -42,14 +42,7 @@ if($_SESSION['admintype'] == 'admin')
 			</div>
 			
 							<?php
-							
-				$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-				$db_sunucu  = "Localhost";       #Sunucu Adı
-				$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-				$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-				$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-				if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-				mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
+			include "db_baglan.php";
 				
 				$duzenle=$_GET["deger"];
 				$sql = mysql_query("SELECT *  FROM  `category` where category_id=$duzenle")
@@ -78,7 +71,7 @@ if($_SESSION['admintype'] == 'admin')
 								$category_id=$sorgu['category_id'];
 								$category_name=$sorgu['category_name'];
 								$category_description=$sorgu['category_description'];
-								$category_URL=$sorgu['category_URL'];
+								$category_gender=$sorgu['category_gender'];
 
 				echo '<div id="addproduct">';
 					echo '<div id="addproduct1">';
@@ -98,10 +91,17 @@ if($_SESSION['admintype'] == 'admin')
 				echo '</div>';
 						
 					echo '<div id="addproduct2">';
-						echo '<h5>Category URL</h5>';
-						echo '<input type="text" name="category_URL" value="'.$category_URL.'" placeholder="Category URL" id="input-name3" class="form-control">';		
-							
+						
+						
+						echo '<h5>Category Gender</h5>';
+																echo'<select name="category_gender">
+															<option value="man">man</option>
+															<option value="woman">woman</option>
+															<option value="kid">kid</option>
+												</select>'; 			
 					echo '</div>';	
+										
+					
 					}
 			?>	
 			</form>

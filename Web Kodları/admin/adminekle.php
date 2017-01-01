@@ -1,12 +1,6 @@
 			
 						<?php
-			$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-			$db_sunucu  = "Localhost";       #Sunucu Adı
-			$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-			$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-			$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-			if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-			mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
+			include "db_baglan.php";
 			
 			$admin_username = $_POST['admin_username'];
 			$adminpass = $_POST['adminpass'];
@@ -14,12 +8,15 @@
 
 			$sorgu = mysql_query("insert into admin(admin_username, adminpass, admintype) VALUES ('$admin_username','$adminpass','$admintype')");
 			
-						    if ($sorgu){
-	    echo "Kayıt Başarılı";
-    }
-    else{
-	    echo "Kayıt Esnasında Bir Sorun Oluştu!";
-    }
+	if(((strlen($adminpass) < 6) )){
+		echo " sifre kisa"; 
+		echo "Kayıt Başarısız";
+	}else{
+			if($sorgu){
+					echo "Kayıt Başarılı";
+
+			}
+	}
 ?>
 
 <p>Yönetici kaydınız başarıyla gerçekleştirildi.</p>

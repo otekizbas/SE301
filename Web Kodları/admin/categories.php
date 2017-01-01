@@ -57,13 +57,7 @@ if($_SESSION['admintype'] == 'admin')
 
 						
 			<?php
-			$db_adi     = "yazilimt_se301";  #Veritabanýmýzýn Adý
-			$db_sunucu  = "Localhost";       #Sunucu Adý
-			$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanýcý Adý
-			$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanýcý Þifre
-			$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-			if (! $veriyolu) die ("MySql Baðlantýsý Saðlanamadý");
-			mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabaný Baðlantýsý Saðlanamadý");
+			include "db_baglan.php";
 			$sorgu = mysql_query("SELECT * 
 FROM  `category`")
 			?>
@@ -74,7 +68,7 @@ FROM  `category`")
 							  <tr>
 							  <td style="font-weight:bold">Category ID</td>
 							  <td style="font-weight:bold">Category Name</td>
-							  <td style="font-weight:bold">Category URL</td>
+							  <td style="font-weight:bold">Category Gender</td>
 							  <td style="font-weight:bold">Product Status / Action</td>
 							  </tr>
 									 <?php
@@ -83,7 +77,7 @@ FROM  `category`")
 																	echo '<tr>';
 																	 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['category_id'].'</td>';
 																	 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['category_name'].'</td>';
-																	 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['category_URL'].'</td>';
+																	 echo '<td align="left"; style="font-style: italic; color: #666">'.$duyuru['category_gender'].'</td>';
 																	 echo "<td><a href=categoryduzenle.php?deger=".$duyuru["category_id"].">DÜZENLE</a> - <a href=kategorisil.php?deger=".$duyuru["category_id"].">SÝL</a></td>";
 																	 echo '</tr>';
 														}

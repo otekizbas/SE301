@@ -43,14 +43,7 @@ if($_SESSION['admintype'] == 'admin')
 			
 
 														<?php
-							
-				$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-				$db_sunucu  = "Localhost";       #Sunucu Adı
-				$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-				$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-				$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-				if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-				mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
+			include "db_baglan.php";
 				
 				$duzenle=$_GET["deger"];
 				$sql = mysql_query("SELECT *  FROM  `user` where user_id=$duzenle")
@@ -91,31 +84,31 @@ if($_SESSION['admintype'] == 'admin')
 						echo '<input type="text" name="user_id" value="'.$user_id.'" placeholder="Admin ID" id="input-name1" class="form-control">';
 					echo '</div>';
 					echo '<div id="addproduct1">';
-						echo '<h5>Admin ID</h5>';
+						echo '<h5>User Name</h5>';
 						echo '<input type="text" name="username" value="'.$username.'" placeholder="Admin ID" id="input-name1" class="form-control">';
 					echo '</div>';
 					echo '<div id="addproduct1">';
-						echo '<h5>Admin ID</h5>';
+						echo '<h5>User Password</h5>';
 						echo '<input type="text" name="userpassword" value="'.$userpassword.'" placeholder="Admin ID" id="input-name1" class="form-control">';
 					echo '</div>';
 					echo '<div id="addproduct1">';
-						echo '<h5>Admin ID</h5>';
+						echo '<h5>First Name</h5>';
 						echo '<input type="text" name="firstname" value="'.$firstname.'" placeholder="Admin ID" id="input-name1" class="form-control">';
 					echo '</div>';
 					echo '<div id="addproduct1">';
-						echo '<h5>Admin ID</h5>';
+						echo '<h5>Last Name</h5>';
 						echo '<input type="text" name="lastname" value="'.$lastname.'" placeholder="Admin ID" id="input-name1" class="form-control">';
 					echo '</div>';
 					echo '<div id="addproduct1">';
-						echo '<h5>Admin ID</h5>';
+						echo '<h5>Address</h5>';
 						echo '<input type="text" name="adres" value="'.$adres.'" placeholder="Admin ID" id="input-name1" class="form-control">';
 					echo '</div>';
 					echo '<div id="addproduct1">';
-						echo '<h5>Admin ID</h5>';
+						echo '<h5>Telephone</h5>';
 						echo '<input type="text" name="telephone" value="'.$telephone.'" placeholder="Admin ID" id="input-name1" class="form-control">';
 					echo '</div>';
 					echo '<div id="addproduct1">';
-						echo '<h5>Admin ID</h5>';
+						echo '<h5>Email Address</h5>';
 						echo '<input type="text" name="email" value="'.$email.'" placeholder="Admin ID" id="input-name1" class="form-control">';
 					echo '</div>';
 

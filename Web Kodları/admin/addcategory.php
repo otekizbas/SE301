@@ -70,8 +70,16 @@ if($_SESSION['admintype'] == 'admin')
 				</div>
 						
 					<div id="addproduct2">
-						<h5>Category URL</h5>
-						<input type="text" name="category_URL" value="" placeholder="Category URL" id="input-name3" class="form-control">		
+						
+						<h5>Category Gender</h5>
+												<select name="category_gender">
+															<option value="man">man</option>
+															<option value="woman">woman</option>
+															<option value="kid">kid</option>
+												</select> 
+					<div id="addproduct3">
+						<iframe src="uploadresim.php"></iframe>
+					</div>
 							
 					</div>		
 				</form>
