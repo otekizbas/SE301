@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
+<title>ONLINE CLOTHING || ADMIN PANEL</title>
+<link href="css/style2.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+		<div id="genel">
+						<div id = "logo">
+					<img src="img/logo.png" style="width:100px; height:50px"/>
+				</div>
+			<div id  = "sag">
+
+				<div id= "menu">
+					<a href ="#"><h4>Product</h4></a>
+					
+					<a href ="#"><h4>Category</h4></a>
+					<a href ="#"><h4>Manager</h4></a>
+					<a href ="#"><h4>Order</h4></a>
+					<a href ="#"><h4>User</h4></a>
+					<a href ="#"><h4>Contact</h4></a>
+					<a href ="#"><h4>Forgat Password</h4></a>
+				</div>
+			</div>
+			
+			
+				<div id= "icerik">
+				<h1 style="margin-left=50px">Dashboard</h1>
+				
+				<div id="productust">
+						<div id ="productustsol">
+							<h5>Home / Add Category</h5>
+						</div>
+						
+						<div id ="productustsag">
+							<img src="img/save.png"/>
+							<img src="img/cancel.png"/>
+						</div>
+				</div>
+			<form method="post" name ="form" action="adminekle.php">			
+						
+				<div id="addproduct">
+					<div id="addproduct1">
+						<h5>Category Name</h5>
+						<input type="text" name="category_name" value="" placeholder="Category Name" id="input-name1" class="form-control">
+					</div>
+					<h5>Category Description</h5>
+					<textarea rows="4" cols="500" name="category_description" id="input-name2" placeholder="Category Description"; style="height:300px; margin-top:5px">
+
+					</textarea>
+					
+				</div>
+						
+					<div id="addproduct2">
+						<h5>Category URL</h5>
+						<input type="text" name="category_URL" value="" placeholder="Category URL" id="input-name3" class="form-control">		
+							
+					</div>		
+				</form>
+				</div>
+		</div>
+</body>
+</html>

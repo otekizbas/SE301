@@ -1,0 +1,224 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+
+#genel{
+	width:100%;
+	height:100%;
+	margin-top:-10px
+}
+#logo{
+	position: fixed;
+	width:100%;
+	height:50px;
+	background-color:#09192A;
+}
+#menu{
+		position: fixed;
+
+	width:235px;
+	float:left;
+	border:6px;
+	margin-top:50px;
+	margin-left:20px;
+	line-height: 30px;
+	
+}
+
+#menu h4{
+	color:white;
+	padding-top:15px;
+	padding-left:10px;
+}
+
+a:hover{
+	color: red;
+	font-style:italic;
+	font-weight: bold;
+}
+
+#icerik{
+    width: 1116px;
+    height: 1584px;
+    float: left;
+    margin-left: 15px;
+}
+#productust{
+	width: 1173px;
+	height: 48px;
+	background-image: url("../img/ustresim.png");
+}
+
+#productustsol{
+	width: 120px;
+	height: 48px;
+	float:left;
+}
+
+#productustsag{
+	width: 100px;
+	height: 48px;
+	float:right;
+	margin-top:7px;
+}
+
+#dashboard{
+		width: 1249px;
+		height:250px;
+	
+}
+#sordertable{
+		width: 1249px;
+		height: auto;
+}
+#sag{
+		width:235px;
+	height:1584px;
+	float:left;
+	background-color:#09192A;;
+}
+
+#usticerik{
+	width: 1200px;
+	height:auto;
+	margin-top: 20px;
+}
+
+#satistoplami{
+	width: 270px;
+	height: 170px;
+	background-color:white;
+	float : left;
+}
+#toplamkullanici{
+	width: 270px;
+	height: 170px;
+	background-color:white;
+	float : left;
+	margin-left: 35px;
+}
+#toplamurunsayisi{
+	width: 270px;
+	height: 170px;
+	background-color:white;
+	float : left;
+	margin-left: 35px;
+}
+#siteyegiris{
+	width: 270px;
+	height: 170px;
+	background-color:white;
+	float : left;
+	margin-left: 35px;
+}
+#image{
+		width: 70px;
+		height:62px;
+		margin-left: 70px;
+		margin-top:10px;
+}
+
+table, th, td {
+	border: 1px solid black;
+
+}
+
+#search{
+	width: 100%;
+	height:300px;
+	background-color:#f5f5f5;
+	background-image: url("../img/searchbg.png");
+}
+#s1{
+	width: 350px;
+	height: auto;
+	float:left;
+	margin-left:50px;
+	
+}
+
+#s2{
+	width: 350px;
+	height: auto;
+	float:left;
+	margin-left:50px;
+}
+
+#s3{
+	width: 350px;
+	height: auto;
+	float:left;
+	margin-left:50px;
+	margin-bottom: 30px;
+}
+
+#input-name{
+	width: 350px;
+	height: 40px;
+	float:left;
+}
+
+#input-price{
+	width: 350px;
+	height: 40px;
+	float:left;
+}
+
+#input-gender{
+	width: 350px;
+	height: 40px;
+	float:left;
+	
+}
+
+#button-filter{
+	float:right;
+	margin-top: 20px;
+}
+
+#addproduct{
+	width:100%;
+}
+
+#input-name1{
+	width:100%;
+	height:35px;
+}
+#input-name2{
+	width:100%
+}
+
+#input-name3{
+	width:100%
+}
+#addproduct2{
+	width:380px;
+	height:250px;
+	float:left;
+}
+
+#addproduct3{
+	width:380px;
+	height:250px;
+	float:left;
+	margin-left: 100px;
+	margin-top:30px;
+}
+#save{
+	background-image: url("../img/save.png");
+	width:38px;
+	height:35px;
+	margin-top: -20px;
+	border-width: 0px;
+}
+
+
+#searh_button{
+	background-image: url("../img/filter.png");
+	width:70px;
+	height:35px;
+	margin-top:25px;
+	border-width: 0px;
+	float:right;
+}
