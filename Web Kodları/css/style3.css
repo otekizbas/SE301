@@ -29,7 +29,7 @@ body {
 }
 #genel{
 	width:80%;
-	height:1240px;
+	height:auto;
 	margin-left: 10%;
 	margin-top: 2%;
 	border-bottom: 3px solid #e2e2e2;
@@ -133,7 +133,7 @@ a:hover{
 }
 #orta{
 	width:100%;
-	height:788px;
+	height:auto;
 	margin-top:30px;
 }
 
@@ -276,7 +276,7 @@ a:hover{
 
 #register{
 	width:24%;
-	height:100%;
+	height:94%;
 	float:left;
 	margin-right:2%;
 		border-top: 2px solid #e2e2e2;
@@ -373,11 +373,19 @@ a:hover{
 	height: 34px;
     float: right;
 }
+
 #submit_registration{
 	width:80px;
 	height:37px;
 	background-image: url("../img/devam.png");
 }
+
+#submit_checkout{
+	width:83px;
+	height:37px;
+	background-image: url("../img/checkoutbuton.png");
+}
+
 
 #urunlistegoster{
 	width:100%;
@@ -386,7 +394,6 @@ a:hover{
 	border-bottom: 2px solid #e2e2e2;
 	border-left: 2px solid #e2e2e2;
 	border-right: 2px solid #e2e2e2;
-	margin-top:2%;
 }
 
 #urunresim{

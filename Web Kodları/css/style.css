@@ -11,6 +11,16 @@ body {
 	background-color: #EEEEEE;
 	border-bottom: 3px solid #e2e2e2;
 }
+
+#solust{
+	width:35%;
+	height:40px;
+	background-color: #EEEEEE;
+	float:left;
+	font-size:12px;
+	font-family: 'Open Sans',sans-serif;
+}
+
 #sagust{
 	width:35%;
 	height:40px;
@@ -43,8 +53,8 @@ body {
 	width:100%;
 	height:50px;
 	margin-top:2%;
-    background-color: #229ac8;
-    background-image: linear-gradient(to bottom,#23a1d1,#1f90bb);
+background-color: #F95A61;
+    background-image: linear-gradient(to bottom,#F95A61,#F95A61);
     background-repeat: repeat-x;
 	padding-top:3px;
 
@@ -118,8 +128,8 @@ a:hover{
 }
 
 #urun_icerik{
-	width:20%;
-	height:463px;
+	width:18%;
+	height:359px;
 	float: left;
 	margin-left:3%;
 	margin-top: 3%;
@@ -138,7 +148,7 @@ a:hover{
 
 #urun_aciklama{
 	width:95%;
-	height:210px;
+	height:60px;
 	margin-left: 3%;
 }
 
@@ -237,4 +247,12 @@ a:hover{
 }
 #buton{
     background-color: #1f90bb;
-    background-position: 0 -15px;}
+    background-position: 0 -15px;
+}
+#addtocartbuton{
+	width: 92%;
+    height: 45px;
+	padding-top: 15px;
+    padding-left: 20px;
+	background-image: url("../img/buton2.png");
+}
