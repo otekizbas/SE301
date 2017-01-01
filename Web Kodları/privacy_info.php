@@ -1,12 +1,12 @@
-ï»¿<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
 <title>ONLINE CLOTHING</title>
-<link href="css/style3.css" type="text/css" rel="stylesheet" />
+<link href="css/style2.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div id="ust">
-		<div id = "solust">
+				<div id = "solust">
 										<?php 
  
 include("db_baglan.php");
@@ -18,7 +18,7 @@ if(!isset($_SESSION["login"])){
 	
 }
 else {
-    echo "<center>SayfamÄ±za hosgeldiniz..!";
+    echo "<center>Sayfamıza hosgeldiniz..!";
 	echo '<input type="text" name="email" value="'.$_SESSION['email'].'" placeholder="email" id="input-name1" class="form-control">';
 
     echo "<a href=logout.php>Guvenli cikis</a></center>";
@@ -33,9 +33,8 @@ else {
 		</div>
 	</div>
 	
-
 	<div id ="genel">
-		<div id="baslÄ±k">
+		<div id="baslık">
 			<div id ="ustbaslik">
 						<?php	
 							include "ustbaslik.php";
@@ -48,23 +47,18 @@ else {
 						?>
 			</div>
 		</div>
-						<?php
-									$hesapla = mysql_query("SELECT SUM( adet * product_price ) FROM shoppingcart")					
-						?>
-						
-			<div id="orta">
-						
-
-				<?php
-					if($_SESSION['email']){
-						include "checkout_orta.php";
-					}else{
-						echo'<a href="register.php">Ãœye Ol</a>';
-					}
-				?>	
-					
+		
+		<div id="orta">		
+			<h1>Privacy Information</h1>
+			<div id = "aboutsol">
+				<p><b>Buraya gizlilik ilkeleri hakkında aciklama yazisi yazacagiz.</b></p>
 			</div>
+			<div id = "aboutsag">
+				<img src="img/privacy.jpg" style="width:40%; height:40%"/>
+			</div>			
+		
 		</div>
+	</div>
 
 </div>
 	<div id ="footer">

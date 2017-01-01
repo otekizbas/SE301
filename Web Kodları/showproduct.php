@@ -6,39 +6,44 @@
 </head>
 <body>
 	<div id="ust">
-		<div id = "solust"></div>
+		<div id = "solust">
+										<?php 
+ 
+include("db_baglan.php");
+ob_start();
+session_start();
+ 
+if(!isset($_SESSION["login"])){
+    header("Location:index.php");
+	
+}
+else {
+    echo "<center>Sayfamıza hosgeldiniz..!";
+	echo '<input type="text" name="email" value="'.$_SESSION['email'].'" placeholder="email" id="input-name1" class="form-control">';
+
+    echo "<a href=logout.php>Guvenli cikis</a></center>";
+}
+?>
+	
+		</div>
 		<div id = "sagust">
-			<img src="img/telefon.png" style="width:25px; height:25px"/>
-			+90 543 601 76 10
-			<img src="img/accound.png" style="width:25px; height:25px; margin-left: 10px; margin-top: 5px;"/>
-			My Account
-			<img src="img/shopingcard.png" style="width:25px; height:25px; margin-left: 10px; margin-top: 5px;"/>
-			Shoping Cart
+						<?php	
+							include "sagust.php";
+						?>
 		</div>
 	</div>
 	
 				<?php
-			$db_adi     = "yazilimt_se301";  #Veritabanımızın Adı
-			$db_sunucu  = "Localhost";       #Sunucu Adı
-			$db_kulladi = "yazilimt_onlineclothing";            #Sunucu Kullanıcı Adı
-			$db_sifre   = "vJ9o2H#GF6+z";                #Sunucu Kullanıcı Şifre
-			$veriyolu   = mysql_connect($db_sunucu,$db_kulladi,$db_sifre);
-			if (! $veriyolu) die ("MySql Bağlantısı Sağlanamadı");
-			mysql_select_db($db_adi,$veriyolu) or die ("Veri Tabanı Bağlantısı Sağlanamadı");
-			$sorgu = mysql_query("SELECT * FROM  `category`")
+			include "db_baglan.php";
+				$duzenle=$_GET["deger"];
+				$sorgu = mysql_query("SELECT *  FROM  `product` where product_id=$duzenle")
 			?>
 	<div id ="genel">
 		<div id="baslık">
 			<div id ="ustbaslik">
-					<div id ="logo">
-						<img src="img/logo.png" style="width:100px; height:50px"/>
-					</div>
-					<div id ="search">
-						<input type="text" name="searchtext" value="" placeholder="Search" class="form-control input-lg"; style="width:70%; height: 30px">
-						<button type="button" class="btn btn-default btn-lg"style="width:20%; height: 30px;">Search</button>
-					</div>
-					<div id ="shopingcart">
-					<button type="button" data-toggle="dropdown" style="width:100%; height: 30px;"><span id="cart-total">0 item(s) - $0.00</span></button></div>
+						<?php	
+							include "ustbaslik.php";
+						?>			
 			</div>
 			
 			<div id ="menu">
@@ -47,36 +52,39 @@
 						?>
 			</div>
 		</div>
-		
-			<div id="orta">
-					<div id ="showproductsol">
-						<div id ="showproductsolresim"></div>
-						<h3>Product Description</h3>
-						<div id ="showproductsolicerik">
-						
-						</div>
-					</div>
-					<div id ="showproductsag">
-						<h4>ProductID</h4>
-						<h2>Ürün Adı</h2>
-						<h4>Availability: Available</h4>
-						<h2>Productprice</h2>
-						
-						<button type="button" data-toggle="dropdown" style="width:100%; height: 30px;"><span id="cart-total">ADD TO CART</span></button>
-					</div>
-			</div>
+		<div id="orta">
+				
+						<?php	
+							include "shwproduct2.php";
+						?>
 		</div>
+	</div>
 
 </div>
 	<div id ="footer">
 		<div id="information">
 			<h3>Information</h3>
+			
+						<?php	
+							include "bilgi.php";
+						?>
+			
 		</div>
 		<div id="costumer_service">
 			<h3>Costumer Service</h3>
+			
+						<?php	
+							include "costumerservice.php";
+						?>
+			
 		</div>
 	<div id="my_account">
 			<h3>My Accound</h3>
+			
+						<?php	
+							include "my_account.php";
+						?>
+			
 		</div>
 
 	</div>

@@ -1,10 +1,10 @@
 <ul>
-	<li><a href="">Login</a></li>
-	<hr/>
-	<li><a href="">Register</a></li>
-	<hr/>
-	<li><a href="">Forgat Password</a></li>
-	<hr/>
-	<li><a href="">My Account</a></li>
-	<hr/>
+	<li><a href="account.php">Login</a></li>
+	
+	<li><a href="register.php">Register</a></li>
+	
+	<li><a href="forgatpassword.php">Forgat Password</a></li>
+	
+	<li><a href="account.php">My Account</a></li>
+	
 </ul>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Anamakine: localhost:3306
--- Üretim Zamanı: 04 Ara 2016, 18:49:45
+-- Üretim Zamanı: 01 Oca 2017, 23:57:20
 -- Sunucu sürümü: 10.0.27-MariaDB
 -- PHP Sürümü: 5.6.20
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `admin_ID` int(11) NOT NULL AUTO_INCREMENT,
   `admin_username` text NOT NULL,
   `adminpass` text NOT NULL,
-  `admintype` text NOT NULL,
+  `admintype` varchar(30) NOT NULL,
   PRIMARY KEY (`admin_ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
@@ -51,19 +51,21 @@ INSERT INTO `admin` (`admin_ID`, `admin_username`, `adminpass`, `admintype`) VAL
 CREATE TABLE IF NOT EXISTS `category` (
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `category_image_URL` text NOT NULL,
-  `category_name` text NOT NULL,
-  `category_URL` text NOT NULL,
+  `category_name` varchar(30) NOT NULL,
   `category_description` text NOT NULL,
+  `category_gender` varchar(10) NOT NULL,
   PRIMARY KEY (`category_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Tablo döküm verisi `category`
 --
 
-INSERT INTO `category` (`category_id`, `category_image_URL`, `category_name`, `category_URL`, `category_description`) VALUES
-(2, '', 'Þapka', 'sapka.php', '\r\n		Þapka			'),
-(3, '', 'tþort', 'mont.php', '');
+INSERT INTO `category` (`category_id`, `category_image_URL`, `category_name`, `category_description`, `category_gender`) VALUES
+(1, 'women_hat (1)', 'HAT', 'Description of Hat		', 'man'),
+(2, 'women_hat (1)', 'HAT', 'Description of Hat				', 'kid'),
+(3, 'women_hat (1)', 'HAT', 'Description of Hat\r\n					', 'woman'),
+(4, '', 'Jersey', 'Description of Jersey\r\n					', 'woman');
 
 -- --------------------------------------------------------
 
@@ -72,10 +74,46 @@ INSERT INTO `category` (`category_id`, `category_image_URL`, `category_name`, `c
 --
 
 CREATE TABLE IF NOT EXISTS `contact` (
-  `ad` text NOT NULL,
+  `contact_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ad` varchar(30) NOT NULL,
   `emailadres` text NOT NULL,
-  `mesaj` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `mesaj` text NOT NULL,
+  UNIQUE KEY `contact_id_3` (`contact_id`),
+  KEY `contact_id` (`contact_id`),
+  KEY `contact_id_2` (`contact_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Tablo döküm verisi `contact`
+--
+
+INSERT INTO `contact` (`contact_id`, `ad`, `emailadres`, `mesaj`) VALUES
+(1, 'Tahir Onural TekizbaÅŸ', 'otekizbas@hotmail.com', 'Siteniz gerÃ§ekten kullanÄ±mÄ± kolay ve gÃ¼zel bir site olmuÅŸ'),
+(2, 'Tahir Onural TekizbaÅŸ', 'otekizbas@hotmail.com', 'KullanÄ±mÄ± kolay gÃ¼zel bir site olmuÅŸ. Ellerinize saÄŸlÄ±k arkadaÅŸlar.TasarÄ±mcÄ±larÄ±n adlarÄ±nÄ± lÃ¼tfen yazÄ±n. Siteyi Ã§ok beÄŸendim.'),
+(3, 'Tahir Onural TekizbaÅŸ', 'otekizbas@hotmail.com', 'LÃ¼tfen tasarÄ±mcÄ±larÄ±n adlarÄ±nÄ± yazÄ±n. ');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `favoriler`
+--
+
+CREATE TABLE IF NOT EXISTS `favoriler` (
+  `favori_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `username` text NOT NULL,
+  `product_name` varchar(30) NOT NULL,
+  `product_price` int(11) NOT NULL,
+  PRIMARY KEY (`favori_id`),
+  UNIQUE KEY `product_id` (`product_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Tablo döküm verisi `favoriler`
+--
+
+INSERT INTO `favoriler` (`favori_id`, `product_id`, `username`, `product_name`, `product_price`) VALUES
+(1, 2, '', 'Hat', 5);
 
 -- --------------------------------------------------------
 
@@ -85,10 +123,18 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 CREATE TABLE IF NOT EXISTS `forgatpassword` (
   `username` text NOT NULL,
-  `firstname` text NOT NULL,
-  `lastname` text NOT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
   `email` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Tablo döküm verisi `forgatpassword`
+--
+
+INSERT INTO `forgatpassword` (`username`, `firstname`, `lastname`, `email`) VALUES
+('otekizbas', 'Tahir Onural', 'TekizbaÅŸ', 'otekizbas@hotmail.com'),
+('otekizbas', 'Tahir Onural', 'TekizbaÅŸ', 'otekizbas@hotmail.com');
 
 -- --------------------------------------------------------
 
@@ -98,37 +144,16 @@ CREATE TABLE IF NOT EXISTS `forgatpassword` (
 
 CREATE TABLE IF NOT EXISTS `order` (
   `orderid` int(11) NOT NULL AUTO_INCREMENT,
-  `firstname` text NOT NULL,
-  `lastname` text NOT NULL,
-  `productid` int(11) NOT NULL,
-  `productname` text NOT NULL,
-  `productprice` int(11) NOT NULL,
-  `orderstatus` text NOT NULL,
+  `username` text NOT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(30) NOT NULL,
+  `adet` int(11) NOT NULL,
+  `product_price` int(11) NOT NULL,
+  `orderstatus` varchar(30) NOT NULL,
+  `order_adres` text NOT NULL,
   PRIMARY KEY (`orderid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `orderDurumu`
---
-
-CREATE TABLE IF NOT EXISTS `orderDurumu` (
-  `orderstatus` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `path`
---
-
-CREATE TABLE IF NOT EXISTS `path` (
-  `path_id` int(11) NOT NULL AUTO_INCREMENT,
-  `category_id` int(11) NOT NULL,
-  PRIMARY KEY (`path_id`),
-  UNIQUE KEY `category_ID` (`category_id`),
-  UNIQUE KEY `path_id` (`path_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -139,33 +164,51 @@ CREATE TABLE IF NOT EXISTS `path` (
 
 CREATE TABLE IF NOT EXISTS `product` (
   `product_id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_name` text NOT NULL,
-  `product_category_name` text NOT NULL,
-  `product_price` int(11) NOT NULL,
-  `product_gender` text NOT NULL,
+  `product_name` varchar(30) NOT NULL,
   `product_description` text NOT NULL,
+  `category_name` varchar(20) NOT NULL,
+  `product_price` int(11) NOT NULL,
+  `product_gender` varchar(10) NOT NULL,
   `product_image` text NOT NULL,
   `numberofproduct` int(11) NOT NULL,
-  PRIMARY KEY (`product_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  UNIQUE KEY `product_id` (`product_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Tablo döküm verisi `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `product_category_name`, `product_price`, `product_gender`, `product_description`, `product_image`, `numberofproduct`) VALUES
-(1, '', '', 0, '', '', 'images/', 0),
-(2, '', '', 0, '', '', 'IMG_20161015_155813.jpg', 0);
+INSERT INTO `product` (`product_id`, `product_name`, `product_description`, `category_name`, `product_price`, `product_gender`, `product_image`, `numberofproduct`) VALUES
+(1, 'Hat', 'Hat Description			', 'HAT', 5, 'man', 'women_hat (1)', 5),
+(2, 'Hat', 'Hat Description\r\n					', 'HAT', 5, 'man', 'women_hat (1)', 5),
+(3, 'Hat', 'Hat Description\r\n					', 'HAT', 5, 'man', 'women_hat (1)', 5),
+(4, 'Hat', 'Hat Description\r\n					', 'HAT', 5, 'man', 'women_hat (1)', 5),
+(5, 'Jersey', '\r\nJersey Description					', 'Jersey', 20, 'woman', '', 7);
 
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `status`
+-- Tablo için tablo yapısı `shoppingcart`
 --
 
-CREATE TABLE IF NOT EXISTS `status` (
-  `statusname` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `shoppingcart` (
+  `shoppingcart_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(30) NOT NULL,
+  `email` text NOT NULL,
+  `adet` int(11) NOT NULL,
+  `product_price` int(11) NOT NULL,
+  PRIMARY KEY (`shoppingcart_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Tablo döküm verisi `shoppingcart`
+--
+
+INSERT INTO `shoppingcart` (`shoppingcart_ID`, `product_id`, `product_name`, `email`, `adet`, `product_price`) VALUES
+(1, 2, 'Hat', 'otekizbas@hotmail.com', 1, 5),
+(2, 5, 'Jersey', 'sahra.gurel@isik.edu.tr', 2, 20),
+(3, 2, 'Hat', 'otekizbas@hotmail.com', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -177,20 +220,25 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` text NOT NULL,
   `userpassword` text NOT NULL,
-  `firstname` text NOT NULL,
-  `lastname` text NOT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
   `adres` text NOT NULL,
   `telephone` text NOT NULL,
   `email` text NOT NULL,
+  UNIQUE KEY `email` (`email`(21)),
+  UNIQUE KEY `username` (`username`(30)),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Tablo döküm verisi `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `userpassword`, `firstname`, `lastname`, `adres`, `telephone`, `email`) VALUES
-(1, 'otekizbas', '10021990', 'Tahir Onural', 'Tekizbaþ', 'Kozyataðý', '5436017610', 'otekizbas@hotmail.com');
+(1, 'snur', '1234567', 'nur', 'gurel', 'Ýstanbul', '05333333', 'snurgurel@gmail.com'),
+(2, 'tetete', '12345qwer', 'Tahir Onural', 'gurel', 'dbhwr', '232424242', 'otekizbas@hotmail'),
+(3, 'otekizbas', 'o1002199', 'Tahir Onural', 'Tekizbaþ', 'Ýstanbul', '05436017610', 'otekizbas@hotmail.com'),
+(4, 'snurgurel', '123abc', 'nur', 'n', 'ankara', '05555555', 'sahra.gurel@isik.edu.tr');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

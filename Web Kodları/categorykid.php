@@ -48,51 +48,51 @@ else {
 			<div id ="menu">
 						<?php	
 							include "menu.php";
-						?>	</div>
+						?>
+			</div>
 		</div>
 		
 		<div id="orta">
-		
-			<h1>Contact Us</h1>
-			<div id ="adres_telefon">
-				<div id ="adres">
-					<h3>
-						Address
-					</h3>
-					<p>Işık Üniversite Şile Kampüsü Üniversite Sokak No:2 Meşrutiyet Köyü</p>
-					<h3>
-						Telephone
-					</h3>
-					<p>0216 712 14 60</p>										
-				</div>		
-				<div id = "contactsag">
-				<img src="img/contact_us.jpg" style="width:30%; height:180px; margin-left:50% ; margin-top:0%"/>
-				</div>
-			</div> 
-		<div id="contact_us">
-			<h3>Contact Form</h3>
-			
-			<form method="post" name ="form" action="contact_us_ekle.php">
-			
-			<div>
-				<label class="col-sm-2 control-label" for="input_name">Your Name</label>
-				<input type="text" name="ad" value="" id="input_name" class="form-control"/>
+			<div id ="register">
+				<?php
+					include 'categorymenukid.php';
+				?>
 			</div>
-			<div>
-				<label class="col-sm-2 control-label" for="input_email">E-Mail Address</label>
-				<input type="email" name="emailadres" value="" id="input_email" class="form-control"/>
-			<div>
-				<label class="col-sm-2 control-label" for="input_enquiry">Massage</label>
-				<textarea name="mesaj" rows="10" id="input_enquiry" class="form-control"></textarea>
-			</div>
-		</div>
-		<input class="buton" type="submit" value="Submit">
-		
-		</form>
-		
-	</div>
-	</div>
+			<div id ="row"> 
+					<?php
+							include "db_baglan.php";
+							$sorgu = mysql_query("SELECT * FROM  `product` where product_gender ='kid' LIMIT 8")
+					?>
+								<?php
+							if($sorgu){
+								while($duyuru = mysql_fetch_array($sorgu)){					
+					echo'<div id ="urunlistegoster">';
+						echo'<div id ="urunresim">';
+							echo'<img src="img/'.$duyuru['product_image'].'" height="100%" width="100%" />';
+						echo'</div>';
+						echo'<div id ="urunicerik">';
+							echo"<a href=showproductcategory.php?deger=".$duyuru["product_id"].">".$duyuru["product_name"]."</a>";
+							echo'<P>'.$duyuru['product_description'].'</P>';
+							echo'<P>'.$duyuru['product_price'].'</P>';
+																			echo'<div id="product_price">'.$duyuru['product_price'].'TL</div>';
+												echo'<div>';
+														if($_SESSION['email']){
+															echo"<a href=showproduct.php?deger=".$duyuru["product_id"].">ADD TO CART</a> - 
 
+															<a href=showproductfavori.php?deger=".$duyuru["product_id"].">ADD TO FAVORITES</a>";
+														}else{
+																echo'<a href="register.php">Üye Ol</a>';
+														}
+												echo'</div>';
+						echo'</div>';
+
+					echo'</div>';
+							}
+						}
+					?>
+		</div>
+
+</div>
 </div>
 	<div id ="footer">
 		<div id="information">

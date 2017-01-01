@@ -34,8 +34,9 @@ else {
 	</div>
 	
 				<?php
-			include "db_baglan.php";
-			$sorgu = mysql_query("SELECT * FROM  `category`")
+				include "db_baglan.php";
+				$duzenle=$_GET["deger"];
+				$sorgu = mysql_query("SELECT *  FROM  `product` where product_id=$duzenle")
 			?>
 	<div id ="genel">
 		<div id="baslık">
@@ -48,49 +49,15 @@ else {
 			<div id ="menu">
 						<?php	
 							include "menu.php";
-						?>	</div>
+						?>
+			</div>
 		</div>
-		
 		<div id="orta">
-		
-			<h1>Contact Us</h1>
-			<div id ="adres_telefon">
-				<div id ="adres">
-					<h3>
-						Address
-					</h3>
-					<p>Işık Üniversite Şile Kampüsü Üniversite Sokak No:2 Meşrutiyet Köyü</p>
-					<h3>
-						Telephone
-					</h3>
-					<p>0216 712 14 60</p>										
-				</div>		
-				<div id = "contactsag">
-				<img src="img/contact_us.jpg" style="width:30%; height:180px; margin-left:50% ; margin-top:0%"/>
-				</div>
-			</div> 
-		<div id="contact_us">
-			<h3>Contact Form</h3>
-			
-			<form method="post" name ="form" action="contact_us_ekle.php">
-			
-			<div>
-				<label class="col-sm-2 control-label" for="input_name">Your Name</label>
-				<input type="text" name="ad" value="" id="input_name" class="form-control"/>
-			</div>
-			<div>
-				<label class="col-sm-2 control-label" for="input_email">E-Mail Address</label>
-				<input type="email" name="emailadres" value="" id="input_email" class="form-control"/>
-			<div>
-				<label class="col-sm-2 control-label" for="input_enquiry">Massage</label>
-				<textarea name="mesaj" rows="10" id="input_enquiry" class="form-control"></textarea>
-			</div>
+				
+						<?php	
+							include "shwproductfavori.php";
+						?>
 		</div>
-		<input class="buton" type="submit" value="Submit">
-		
-		</form>
-		
-	</div>
 	</div>
 
 </div>
