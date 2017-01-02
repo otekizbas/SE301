@@ -68,7 +68,7 @@ else {
 								while($duyuru = mysql_fetch_array($sorgu)){					
 					echo'<div id ="urunlistegoster">';
 						echo'<div id ="urunresim">';
-							echo'<img src="img/'.$duyuru['product_image'].'" height="100%" width="100%" />';
+							echo'<img src="'.$duyuru['product_image'].'" height="100%" width="100%" />';
 						echo'</div>';
 						echo'<div id ="urunicerik">';
 							echo"<a href=showproductcategory.php?deger=".$duyuru["product_id"].">".$duyuru["product_name"]."</a>";

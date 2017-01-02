@@ -5,7 +5,7 @@
 											while($duyuru = mysql_fetch_array($sorgu)){
 												echo'<div id = "urun_icerik">';
 												echo'<div id = "urun_resim">';
-												echo '<img src="img/'.$duyuru['product_image'].'" height="200" width="200" />';
+												echo '<img src="'.$duyuru['product_image'].'" height="200" width="200" />';
 
 												echo'</div>';
 												echo"<a href=showproductfavori.php?deger=".$duyuru["product_id"].">".$duyuru["product_name"]."</a>";

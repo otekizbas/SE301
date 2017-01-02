@@ -12,7 +12,7 @@
 						$numberofproduct=$sorgu['numberofproduct'];	
 					echo'<div id ="showproductsol">';
 						echo'<div id ="showproductsolresim">';
-							echo '<img src="img/'.$duyuru['product_image'].'" height="100%" width="100%" />';
+							echo '<img src="'.$duyuru['product_image'].'" height="100%" width="100%" />';
 						echo'</div>';
 							echo'<h3>Product Description</h3>';
 						echo'<div id ="showproductsolicerik">';

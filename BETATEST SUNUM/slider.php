@@ -129,7 +129,7 @@
 											while($duyuru = mysql_fetch_array($sorgu)){
 																															
 												echo'<div data-p="225.00" data-po="80% 55%" style="display:none;">';
-													echo'<img data-u="image" src="img/'.$duyuru['category_image_URL'].'" />';
+													echo'<img data-u="image" src="'.$duyuru['category_image_URL'].'" />';
 												echo'</div>';
 											}
 										}

@@ -13,7 +13,7 @@
 						$adet=$sorgu['numberofproduct'];	
 					echo'<div id ="showproductsol">';
 						echo'<div id ="showproductsolresim">';
-							echo '<img src="img/'.$duyuru['product_image'].'" height="100%" width="100%"/>';
+							echo '<img src="'.$duyuru['product_image'].'" height="100%" width="100%"/>';
 						echo'</div>';
 							echo'<h3>Product Description</h3>';
 						echo'<div id ="showproductsolicerik">';
@@ -32,8 +32,8 @@
 								echo '<input type="text" name="product_price" value="'.$duyuru["product_price"].'"  placeholder="Product ID" id="input-name1" class="form-control">';
 						echo'<h4>Adet</h4>';
 						echo '<input type="text" name="adet" value="'.$duyuru["adet"].'"  placeholder="Adet" id="input-name1" class="form-control">';
-
-							echo '<input type="text" name="email" value="'.$_SESSION['email'].'" placeholder="email" id="input-name1" class="form-control">';
+						echo'<h4>Email</h4>';
+						echo '<input type="text" name="email" value="'.$_SESSION['email'].'" placeholder="email" id="input-name1" class="form-control">';
 
 								
 							
