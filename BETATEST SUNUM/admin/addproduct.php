@@ -100,14 +100,16 @@ if($_SESSION['admintype'] == 'admin')
 
 						<h5>Number Of Product</h5>
 						<input type="text" name="numberofproduct" value="" placeholder="Number Of Product" id="input-numberofproduct" class="form-control">
+						<h5>Product Image URL</h5>
+						<input type="text" name="product_image" value="" placeholder="Product Image" id="input-name1" class="form-control">
 
 					</div>		
 
-
-					
+			
 					<div id="addproduct3">
-						<iframe src="uploadresimproduct.php"></iframe>
+						<iframe src="upload/upload.php" width="560" height="337"></iframe>
 					</div>	
+					
 </form>					
 				</div>
 		</div>

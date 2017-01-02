@@ -66,6 +66,8 @@ if($_SESSION['admintype'] == 'admin')
 					<textarea rows="4" cols="500" name="category_description" id="input-name2" placeholder="Category Description"; style="height:300px; margin-top:5px">
 
 					</textarea>
+						<h5>Product Image URL</h5>
+						<input type="text" name="category_image_URL" value="" placeholder="Category Image" id="input-name1" class="form-control">
 					
 				</div>
 						
@@ -78,9 +80,8 @@ if($_SESSION['admintype'] == 'admin')
 															<option value="kid">kid</option>
 												</select> 
 					<div id="addproduct3">
-						<iframe src="uploadresim.php"></iframe>
-					</div>
-							
+						<iframe src="upload/upload.php" width="560" height="337"></iframe>
+					</div>								
 					</div>		
 				</form>
 				</div>
